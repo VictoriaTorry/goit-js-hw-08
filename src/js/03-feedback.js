@@ -10,6 +10,7 @@ window.addEventListener('load', checkStorage);
 function checkStorage() {
   if (!localStorage.getItem(localKey)) return;
   const formValue = JSON.parse(localStorage.getItem(localKey));
+  console.dir(formValue);
   for (const key in formValue) {
     form.elements[key].value = formValue[key];
   }
@@ -17,6 +18,7 @@ function checkStorage() {
 function onFormSubmit(event) {
   event.preventDefault();
   const savedData = JSON.parse(localStorage.getItem(localKey));
+  console.dir(savedData);
   localStorage.removeItem(localKey);
   event.currentTarget.reset();
 }
